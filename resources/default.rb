@@ -9,5 +9,6 @@ attribute :known_hosts, :kind_of => Array, :default => []
 
 def initialize(*args)
   super
+  @resource_name = :git_user
   @action = :create
 end

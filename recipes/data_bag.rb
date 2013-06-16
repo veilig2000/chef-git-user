@@ -3,7 +3,7 @@ if node['users']
     user = data_bag_item('users', username)
 
     if user['git_user'] && user['git_user']['enabled']
-      git_user_setup user['id'] do
+      git_user user['id'] do
         home        user['home']
         full_name   user['git_user']['full_name']
         email       user['git_user']['email']

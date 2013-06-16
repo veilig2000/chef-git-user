@@ -4,7 +4,7 @@ def load_current_resource
   @email       = new_resource.email || "#{@login}@#{node['fqdn']}"
   @home        = new_resource.home  || (@login == 'root' ? '/root' : "/home/#{@login}")
   @private_key = new_resource.private_key
-  @known_hosts = new_resource.known_hosts || []
+  @known_hosts = new_resource.known_hosts
 end
 
 action :create do
