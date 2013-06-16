@@ -143,7 +143,7 @@ Processes `node['users']` and performs the configuration for the ones whose data
 
 #### Example
 
-```
+```ruby
 git_user 'charlie' do
   private_key get_my_super_secret_key
   known_hosts %w{ github.com bitbucket.org }
