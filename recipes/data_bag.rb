@@ -1,3 +1,5 @@
+include_recipe 'git_user'
+
 if node['users']
   node['users'].each do |username|
     user = data_bag_item('users', username)
