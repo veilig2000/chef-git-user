@@ -1,0 +1,6 @@
+{
+  "id"      : "testman",
+  "comment" : "Test Man",
+  "home"    : "/home/testman",
+  "groups"  : ["testman", "wheel"]
+}

@@ -1,0 +1,13 @@
+{
+  "id"      : "joe",
+  "comment" : "Joseph Man",
+  "home"    : "/home/joe",
+  "groups"  : ["joe", "wheel"],
+  "git_user": {
+    "enabled"    : true,
+    "full_name"  : "Joseph Man Jr.",
+    "email"      : "joe@example.com",
+    "private_key": "OMG123",
+    "known_hosts": ["bitbucket.org"]
+  }
+}
