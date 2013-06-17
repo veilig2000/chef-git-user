@@ -1,8 +1,9 @@
 require 'emeril/rake'
+require 'foodcritic'
 
-begin
-  require 'kitchen/rake_tasks'
-  Kitchen::RakeTasks.new
-rescue LoadError
-  puts ">>>>> Kitchen gem not loaded, omitting tasks" unless ENV['CI']
+FoodCritic::Rake::LintTask.new do |t|
+  # http://acrmp.github.io/foodcritic/#FC023
+  t.options = { :fail_tags => ['any'], :tags => ['~FC023'] }
 end
+
+task :default => :foodcritic

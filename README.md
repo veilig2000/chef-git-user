@@ -1,4 +1,5 @@
 # git_user
+[![Build Status](https://travis-ci.org/lxmx/chef-git-user.png?branch=master)](https://travis-ci.org/lxmx/chef-git-user)
 
 ## Description
 
@@ -35,7 +36,7 @@ The `git_user::data_bag` recipe assumes that you're using the `user::data_bag` r
 
 
 ### Platform
-This cookbook has been [tested](https://github.com/lxmx/chef-oh-my-zsh/blob/master/.kitchen.yml) with the following OSes:
+This cookbook has been [tested](https://github.com/lxmx/chef-git-user/blob/master/.kitchen.yml) with the following OSes:
 
 * centos / redhat
 * ubuntu
@@ -58,7 +59,7 @@ No-op, does nothing.
 Processes `node['users']` and performs the configuration for the ones whose data_bags enable it, e.g.
 
 ```
-{ 
+{
   "id"        : "ranger",
   ...
   "git_user" : { "enabled": true, "email": "ranger@solarsystems.io" }
