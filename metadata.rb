@@ -3,7 +3,7 @@ maintainer       'Vasily Mikhaylichenko'
 maintainer_email 'vaskas@lxmx.com.au'
 license          'BSD'
 description      'Git users configuration'
-version          '0.3.0'
+version          '0.3.1'
 
 %w{redhat centos ubuntu gentoo}.each do |os|
   supports os
