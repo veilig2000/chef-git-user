@@ -43,7 +43,7 @@ action :create do
     end
   end
 
-  conf_r = gitconfig(@home, @full_name, @email)
+  conf_r = gitconfig(@home, @full_name, @email, @login)
 
   [ conf_r, key_r, ssh_r ].each do |res|
     if res && res.updated_by_last_action?
@@ -54,10 +54,11 @@ action :create do
 
 end
 
-def gitconfig(home, full_name, email)
+def gitconfig(home, full_name, email, login)
   template "#{home}/.gitconfig" do
     cookbook 'git_user'
     source 'gitconfig.erb'
+    owner login
     mode '0644'
 
     variables(
