@@ -2,13 +2,10 @@
   name = <%= @name %>
   email = <%= @email %>
 
-[alias]
-  co = checkout
-  ci = commit
-  rb = rebase
-  st = status
+<% node['git_user']['gitconfig'].each do |config, _settings| -%>
+[<%= config %>]
+<%  node['git_user']['gitconfig'][config].each do |k, v| -%>
+  <%= k %> = <%= v %>
+<%  end -%>
 
-[color]
-  status = auto
-  branch = auto
-  ui = auto
+<% end -%>
