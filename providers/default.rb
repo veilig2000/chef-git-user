@@ -2,15 +2,17 @@ def load_current_resource
   @login       = new_resource.login
   @full_name   = new_resource.full_name || @login
   @email       = new_resource.email || "#{@login}@#{node['fqdn']}"
-  @home        = new_resource.home  || (@login == 'root' ? '/root' : "/home/#{@login}")
+  @home        = new_resource.home || (@login == 'root' ? '/root' : "/home/#{@login}")
   @private_key = new_resource.private_key
   @known_hosts = new_resource.known_hosts
 end
 
 action :create do
   # scope variables
-  home, login = @home, @login
-  private_key, known_hosts = @private_key, @known_hosts
+  home = @home
+  login = @login
+  private_key = @private_key
+  known_hosts = @known_hosts
 
   key_r = nil
   ssh_r = nil
@@ -32,8 +34,8 @@ action :create do
         source 'ssh_config.erb'
         owner login
         variables(
-          :known_hosts => known_hosts,
-          :identity_file => identity_file
+          known_hosts: known_hosts,
+          identity_file: identity_file
         )
       end
 
@@ -45,13 +47,12 @@ action :create do
 
   conf_r = gitconfig(@home, @full_name, @email, @login)
 
-  [ conf_r, key_r, ssh_r ].each do |res|
+  [conf_r, key_r, ssh_r].each do |res|
     if res && res.updated_by_last_action?
       new_resource.updated_by_last_action(true)
       break
     end
   end
-
 end
 
 def gitconfig(home, full_name, email, login)
@@ -62,8 +63,8 @@ def gitconfig(home, full_name, email, login)
     mode '0644'
 
     variables(
-      :name  => full_name,
-      :email => email
+      name: full_name,
+      email: email
     )
   end
 end
