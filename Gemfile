@@ -14,5 +14,5 @@ end
 gem 'emeril'
 
 group :development do
-  gem 'knife-community', github: 'miketheman/knife-community'
+  gem 'knife-community', git: 'https://github.com/miketheman/knife-community.git', branch: 'master'
 end

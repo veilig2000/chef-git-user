@@ -1,6 +1,7 @@
 GIT
-  remote: git://github.com/miketheman/knife-community.git
+  remote: https://github.com/miketheman/knife-community.git
   revision: 4b8da87ff9d4926d1df89c895fb430612e287d62
+  branch: master
   specs:
     knife-community (0.3.0.dev)
       chef (>= 10.12)
