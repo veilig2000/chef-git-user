@@ -2,7 +2,7 @@ include_recipe 'git_user'
 
 if node['users']
   node['users'].each do |username|
-    user = data_bag_item('users', username)
+    user = data_bag_item(node['git_user']['data_bag_name'], username)
 
     next if user['git_user'].nil? || !user['git_user']['enabled']
 
